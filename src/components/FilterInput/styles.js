@@ -5,7 +5,7 @@ export const StyledForm = styled.form`
     flex-flow: row wrap;
     align-items: center;
 
-    @media (max-width: 800px) {
+    @media (max-width: ${props => props.theme.sizes.phoneSize}) {
         flex-direction: column;
         align-items: stretch;
     }
@@ -18,7 +18,7 @@ export const StyledForm = styled.form`
     }
 
     * {
-        @media (max-width: 800px) {
+        @media (max-width: ${props => props.theme.sizes.phoneSize}) {
             flex-direction: column;
             align-items: stretch;
             font-size: ${props => props.theme.sizes.phoneNormal};
@@ -31,7 +31,7 @@ export const StyledInput = styled.input`
     margin: 0;
     padding: 10px;
     border: 1px solid ${props => props.theme.colors.disabled};
-    @media (max-width: 800px) {
+    @media (max-width: ${props => props.theme.sizes.phoneSize}) {
         margin-bottom: 5px;
     }
 `
@@ -41,7 +41,7 @@ export const StyledSelect = styled.select`
     margin: 0;
     padding: 10px;
     border: 1px solid ${props => props.theme.colors.disabled};
-    @media (max-width: 800px) {
+    @media (max-width: ${props => props.theme.sizes.phoneSize}) {
         margin-bottom: 5px;
     }
 `
@@ -51,7 +51,7 @@ export const StyledOption = styled.option`
     margin: 0;
     padding: 10px;
     border: 1px solid ${props => props.theme.colors.disabled};
-    @media (max-width: 800px) {
+    @media (max-width: ${props => props.theme.sizes.phoneSize}) {
         margin-bottom: 5px;
     }
 `
@@ -67,7 +67,7 @@ export const StyledSubmit = styled.input`
     :hover {
         background-color: ${props => props.theme.colors.strongHighlight};
     }
-    @media (max-width: 800px) {
+    @media (max-width: ${props => props.theme.sizes.phoneSize}) {
         margin-bottom: 5px;
     }
 `

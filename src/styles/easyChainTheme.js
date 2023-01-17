@@ -13,6 +13,7 @@ export const easyChainTheme = {
   sizes: {
     phoneNormal: '1.2rem',
     normal: '1.5rem',
-    big: '2rem'
+    big: '2rem',
+    phoneSize: '800px'
   } // rem
 }

@@ -1,8 +1,8 @@
 import CustomImage from '../CustomImage'
-import ImageList from '@mui/material/ImageList'
+import ImageGrid from '../ImageGrid'
 
 const NFTDisplayerDesktop = ({ nfts = [] }) => {
-  const imageData = nfts.map((nft, index) => {
+  const imagesData = nfts.filter((nft, index) => index < 12).map((nft, index) => {
     const nftData = {}
     nftData.srcList = [nft.file_url, nft.cached_file_url, nft.file_url, process.env.PUBLIC_URL + '/images/not-found.webp']
     nftData.alt = nft.contract_address
@@ -12,15 +12,19 @@ const NFTDisplayerDesktop = ({ nfts = [] }) => {
     return nftData
   })
   return (
-    <ImageList variant='masonry' cols={3} gap={8}>
-      <CustomImage
-        srcList={imageData[0].srcList}
-        alt={imageData[0].alt}
-        chain={imageData[0].chain}
-        contractAddress={imageData[0].contractAddress}
-        name={imageData[0].name}
-      />
-    </ImageList>
+    <ImageGrid parts={3}>
+      {imagesData.map((imageData, index) => (
+        <CustomImage
+          key={index}
+          srcList={imageData.srcList}
+          alt={imageData.alt}
+          chain={imageData.chain}
+          contractAddress={imageData.contractAddress}
+          name={imageData.name}
+        />
+      ))}
+    </ImageGrid>
+
   )
 }
 

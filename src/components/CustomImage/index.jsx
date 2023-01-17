@@ -26,17 +26,16 @@ const CustomImage = ({
       onMouseOut={() => { setHoverState(false) }}
       onClick={handleClick}
     >
-      <FrameInner hover={hoverState}>
-        <FlipCardFront>
+      <FrameInner>
+        <FlipCardFront hover={hoverState}>
           <SingleImage
             src={srcList[currentSrc]}
             onError={() => setCurrentSrc(currentSrc + 1)}
             alt={alt}
             loading='lazy'
-            hidden={hoverState}
           />
         </FlipCardFront>
-        <FlipCardBack>
+        <FlipCardBack hover={hoverState}>
           <p>{name}</p>
           <p>{chain}</p>
           <p>{contractAddress}</p>
