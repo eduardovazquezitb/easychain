@@ -7,13 +7,23 @@ import useAppVersion from '../GetWindowDimensions'
 import NFTDisplayerDesktop from '../NFTDisplayerDesktop'
 import NFTDisplayerPhone from '../NFTDisplayerPhone'
 
-const NFTMarket = () => {
-  const [queryState, setQueryState] = useState({ chain: 'polygon' })
+const NFTsDisplayer = ({ nfts = [] }) => {
   const appVersion = useAppVersion()
 
-  console.log(appVersion)
+  console.log(appVersion, Date.now())
+
+  if (appVersion === 'desktop') {
+    return <NFTDisplayerDesktop nfts={nfts} />
+  }
+  return <NFTDisplayerPhone nfts={nfts} />
+}
+
+const NFTMarket = () => {
+  const [queryState, setQueryState] = useState({ chain: 'polygon' })
 
   const nfts = useNFTPort(queryState)
+
+  console.log(nfts)
 
   const filterOptions = ['Chain', 'Contract Address', 'Creator Address']
 
@@ -38,9 +48,7 @@ const NFTMarket = () => {
         </Header>
         <Content>
           {nfts.isResolved
-            ? appVersion === 'desktop'
-              ? <NFTDisplayerDesktop />
-              : <NFTDisplayerPhone nfts={nfts.response.data.nfts} />
+            ? <NFTsDisplayer nfts={nfts.response.data.nfts} />
             : <LoadingComponent />}
         </Content>
         <Footer />

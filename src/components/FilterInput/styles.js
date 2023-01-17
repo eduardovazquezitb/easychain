@@ -28,7 +28,7 @@ export const StyledForm = styled.form`
 
 export const StyledInput = styled.input`
     vertical-align: middle;
-    margin: 0 10px 0 0;
+    margin: 0;
     padding: 10px;
     border: 1px solid ${props => props.theme.colors.disabled};
     @media (max-width: 800px) {
@@ -38,7 +38,7 @@ export const StyledInput = styled.input`
 
 export const StyledSelect = styled.select`
     vertical-align: middle;
-    margin: 0 10px 0 0;
+    margin: 0;
     padding: 10px;
     border: 1px solid ${props => props.theme.colors.disabled};
     @media (max-width: 800px) {
@@ -48,7 +48,7 @@ export const StyledSelect = styled.select`
 
 export const StyledOption = styled.option`
     vertical-align: middle;
-    margin: 0 10px 0 0;
+    margin: 0;
     padding: 10px;
     border: 1px solid ${props => props.theme.colors.disabled};
     @media (max-width: 800px) {
@@ -58,7 +58,7 @@ export const StyledOption = styled.option`
 
 export const StyledSubmit = styled.input`
     padding: 10px 20px;
-    margin: 0 10px 0 0;
+    margin: 0;
     background-color:  ${props => props.theme.colors.highlight};
     border: 1px solid ${props => props.theme.colors.disabled};
     color: ${props => props.theme.colors.primary};

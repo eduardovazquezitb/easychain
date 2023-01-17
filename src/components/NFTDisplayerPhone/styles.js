@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
-import { Img } from 'react-image'
+import CustomImage from '../CustomImage'
 
-export const StyledImg = styled(Img)`
+export const StyledImg = styled(CustomImage)`
     width: 100%;
     height: auto;
 `
