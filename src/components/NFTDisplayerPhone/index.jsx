@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { StyledImg } from './styles'
+import CustomImage from '../CustomImage'
 
 const NFTDisplayerPhone = ({ nfts = [] }) => {
   const [currentNft, setCurrentNft] = useState(0)
@@ -11,7 +11,7 @@ const NFTDisplayerPhone = ({ nfts = [] }) => {
     <>
       {nfts.length === 0
         ? <div />
-        : <StyledImg
+        : <CustomImage
             srcList={[nftData.file_url, nftData.cached_file_url, nftData.file_url, process.env.PUBLIC_URL + '/images/not-found.webp']}
             alt={nftData.contract_address}
             chain={nftData.chain}
