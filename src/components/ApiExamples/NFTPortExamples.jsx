@@ -12,7 +12,7 @@ const NftDisplayer = ({ nftData = { chain: '', contract_address: '', creator_add
         <b>Token Id:</b> {nftData.token_id}
       </p>
       <Img
-        src={[nftData.file_url, nftData.cached_file_url]}
+        src={[nftData.file_url, nftData.cached_file_url, process.env.PUBLIC_URL + '/images/not-found.webp']}
         alt={nftData.file_url}
       />
     </>
