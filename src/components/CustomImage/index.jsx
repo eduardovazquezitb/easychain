@@ -7,16 +7,24 @@ const CustomImage = ({
   chain = '',
   contractAddress = '',
   creatorAddress = '',
-  name = ''
+  name = '',
+  onClick = null
 }) => {
   const [currentSrc, setCurrentSrc] = useState(0)
   const [hoverState, setHoverState] = useState(false)
   if (srcList[currentSrc] === null) { setCurrentSrc(currentSrc + 1) }
 
+  const handleClick = () => {
+    if (onClick !== null) {
+      onClick()
+    }
+  }
+
   return (
     <Frame
       onMouseOver={() => { setHoverState(true) }}
       onMouseOut={() => { setHoverState(false) }}
+      onClick={handleClick}
     >
       <FrameInner hover={hoverState}>
         <FlipCardFront>

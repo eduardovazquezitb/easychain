@@ -10,8 +10,6 @@ import NFTDisplayerPhone from '../NFTDisplayerPhone'
 const NFTsDisplayer = ({ nfts = [] }) => {
   const appVersion = useAppVersion()
 
-  console.log(appVersion, Date.now())
-
   if (appVersion === 'desktop') {
     return <NFTDisplayerDesktop nfts={nfts} />
   }
@@ -22,8 +20,6 @@ const NFTMarket = () => {
   const [queryState, setQueryState] = useState({ chain: 'polygon' })
 
   const nfts = useNFTPort(queryState)
-
-  console.log(nfts)
 
   const filterOptions = ['Chain', 'Contract Address', 'Creator Address']
 
