@@ -1,5 +1,5 @@
 import { Frame, HighlightTitle, ContentWrapper } from './styles'
-import ExchangeList from '../ExchangeList'
+import Home from '../Home'
 
 function App () {
   const background = process.env.PUBLIC_URL + '/images/backgrounds/background' + Math.floor(Math.random() * 4) + '.png'
@@ -10,7 +10,8 @@ function App () {
           Hello
         </HighlightTitle>
         {/* <NFTMarket /> */}
-        <ExchangeList />
+        {/* <ExchangeList /> */}
+        <Home />
       </ContentWrapper>
     </Frame>
   )
