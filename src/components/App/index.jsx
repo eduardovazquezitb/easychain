@@ -1,13 +1,16 @@
-import NFTMarket from '../NFTMarket'
-import { Frame, HighlightTitle } from './styles'
+import { Frame, HighlightTitle, ContentWrapper } from './styles'
+import ExchangeList from '../ExchangeList'
 
 function App () {
   return (
     <Frame>
-      <HighlightTitle>
-        Hello
-      </HighlightTitle>
-      <NFTMarket />
+      <ContentWrapper>
+        <HighlightTitle>
+          Hello
+        </HighlightTitle>
+        {/* <NFTMarket /> */}
+        <ExchangeList />
+      </ContentWrapper>
     </Frame>
   )
 }

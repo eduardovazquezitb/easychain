@@ -9,8 +9,8 @@ export const Roller = styled.div`
     display: inline-block;
     position: absolute;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    top: 0%;
+    transform: translate(-50%, 0%);
     width: 8rem;
     height: 8rem;
 
