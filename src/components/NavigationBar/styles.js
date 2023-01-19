@@ -1,8 +1,14 @@
 import styled from '@emotion/styled'
 
 export const Frame = styled.nav`
-    width: 100%;
-    height: 2.5rem;
+    margin: auto;
+    @media (min-width: 800px){
+        width: 90%;
+    }
+    @media (min-width: 1340px){
+        max-width: 1349px;
+    }
+    height: 3.5rem;
     direction: rtl;
     background-color: ${props => props.theme.colors.secondary};
     border: 1px solid ${props => props.theme.colors.highlight};

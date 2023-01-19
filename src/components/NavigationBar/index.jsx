@@ -1,6 +1,6 @@
 import { Frame, StyledImage, Title } from './styles'
 
-export const NavigationBar = () => {
+const NavigationBar = () => {
   return (
     <Frame>
       <StyledImage
@@ -17,3 +17,5 @@ export const NavigationBar = () => {
     </Frame>
   )
 }
+
+export default NavigationBar
