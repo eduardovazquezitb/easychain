@@ -13,7 +13,7 @@ const CryptoMarketDesktop = ({ data = [], currency = 'usd' }) => {
           <th>#</th>
           <th>Coin</th>
           <th>Price</th>
-          <LastColumnHeader>24 h</LastColumnHeader>
+          <th>24 h</th>
         </tr>
       </TableHeader>
       <tbody>
