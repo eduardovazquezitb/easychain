@@ -14,6 +14,8 @@ export const ContentWrapper = styled.div`
     height: calc(100% - 3.5rem);
     @media (min-width: 800px){
         width: calc(90% - 200px);
+        padding-left: 15px;
+        padding-right: 15px;
     }
     @media (min-width: 1340px){
         max-width: 1349px;

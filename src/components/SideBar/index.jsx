@@ -1,28 +1,19 @@
 import { Frame, ListItem } from './styles'
 
 const SideBar = ({ isHidden = true, onClick = null }) => {
-  const pages = [
-    {
-      name: 'Menu'
-    },
-    {
-      name: 'NFT Market'
-    },
-    {
-      name: 'Exchange List'
-    }
-  ]
-  const handleOnClick = () => {
-    if (onClick !== null) { onClick() }
-  }
   if (isHidden) {
     return (<div />)
   }
+  const handleOnClick = () => {
+    if (onClick !== null) {
+      onClick()
+    }
+  }
   return (
     <Frame>
-      {pages.map((page, it) =>
-        <ListItem key={it} onClick={handleOnClick}>{page.name}</ListItem>
-      )}
+      <ListItem to='/' onClick={handleOnClick}>Home</ListItem>
+      <ListItem to='/nftmarket' onClick={handleOnClick}>NFT Market</ListItem>
+      <ListItem to='/exchangelist' onClick={handleOnClick}>Exchange List</ListItem>
     </Frame>
   )
 }
