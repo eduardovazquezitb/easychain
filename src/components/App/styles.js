@@ -11,9 +11,9 @@ export const Frame = styled.div`
 export const ContentWrapper = styled.div`
     padding: 5px;
     margin: auto;
-    height: 100%;
+    height: calc(100% - 3.5rem);
     @media (min-width: 800px){
-        width: 90%;
+        width: calc(90% - 200px);
     }
     @media (min-width: 1340px){
         max-width: 1349px;
