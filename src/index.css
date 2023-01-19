@@ -5,6 +5,8 @@
     --clr-strong-hightlight: #117AFA;
     --clr-disabled: #f4f4f4;
     --clr-black: #000000;
+    --clr-positive: #00ff00;
+    --clr-negative: #ff0000;
     --ff-primary-body: "SF Pro Text", BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 

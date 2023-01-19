@@ -8,9 +8,12 @@ export const easyChainTheme = {
     highlight: 'var(--clr-highlight)',
     strongHighlight: 'var(--clr-strong-hightlight)',
     disabled: 'var(--clr-disabled)',
-    black: 'var(--clr-black)'
+    black: 'var(--clr-black)',
+    positive: 'var(--clr-positive)',
+    negative: 'var(--clr-negative)'
   },
   sizes: {
+    small: '1rem',
     phoneNormal: '1.2rem',
     normal: '1.5rem',
     big: '2rem',
