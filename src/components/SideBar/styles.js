@@ -22,4 +22,7 @@ export const Frame = styled.div`
 
 export const ListItem = styled.div`
     width: 100%;
+    :hover{
+        cursor: pointer;
+    }
 `

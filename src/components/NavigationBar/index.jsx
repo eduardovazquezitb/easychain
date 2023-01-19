@@ -3,6 +3,7 @@ import { Frame, StyledImage, Title } from './styles'
 const NavigationBar = () => {
   return (
     <Frame>
+      {/* <SideBarButton /> */}
       <StyledImage
         src={process.env.PUBLIC_URL + '/EasyChainLogo.png'}
         alt='logo'

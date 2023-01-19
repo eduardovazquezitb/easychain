@@ -3,6 +3,9 @@ import { Frame, ListItem } from './styles'
 const SideBar = () => {
   const pages = [
     {
+      name: 'Menu'
+    },
+    {
       name: 'NFT Market'
     },
     {
