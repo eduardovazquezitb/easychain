@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Frame, FrameInner, SingleImage, FlipCardFront, FlipCardBack } from './styles'
 
 const CustomImage = ({
@@ -13,6 +13,10 @@ const CustomImage = ({
   const [currentSrc, setCurrentSrc] = useState(0)
   const [hoverState, setHoverState] = useState(false)
   if (srcList[currentSrc] === null) { setCurrentSrc(currentSrc + 1) }
+
+  useEffect(() => {
+    setCurrentSrc(0)
+  }, [srcList])
 
   const handleClick = () => {
     if (onClick !== null) {

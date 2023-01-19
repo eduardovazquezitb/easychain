@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import { Frame, ContentWrapper } from './styles'
 import Home from '../Home'
 import Menu from '../Menu'
+import CryptoMarket from '../CryptoMarket'
 import NFTMarket from '../NFTMarket'
 import ExchangeList from '../ExchangeList'
 
@@ -13,6 +14,7 @@ function App () {
       <ContentWrapper>
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/cryptomarket' element={<CryptoMarket />} />
           <Route path='/nftmarket' element={<NFTMarket />} />
           <Route path='/exchangelist' element={<ExchangeList />} />
         </Routes>

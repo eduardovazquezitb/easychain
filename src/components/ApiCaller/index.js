@@ -7,6 +7,7 @@ export const useNFTPort = ({ chain = 'ethereum' }) => {
   const [responseState, setResponseState] = useState({ response: {}, isResolved: false })
 
   useEffect(() => {
+    setResponseState({ response: {}, isResolved: false })
     const config = {
       headers: {
         'Content-Type': 'application/json',
@@ -75,6 +76,7 @@ export const useCoinsMarket = ({ currency = 'usd', order = 'market_cap_desc', pe
   const [responseState, setResponseState] = useState({ response: {}, isResolved: false })
 
   useEffect(() => {
+    setResponseState({ response: {}, isResolved: false })
     const config = {
       headers: {
         accept: 'application/json'
