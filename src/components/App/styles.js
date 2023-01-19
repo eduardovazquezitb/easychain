@@ -4,6 +4,8 @@ export const Frame = styled.div`
     position: absolute;
     width: 100vw;
     height: 100vh;
+    background-image: url('${props => props.background}'); 
+    background-size: cover;
 `
 
 export const HighlightTitle = styled.h1`
@@ -13,6 +15,7 @@ export const HighlightTitle = styled.h1`
 export const ContentWrapper = styled.div`
     padding: 5px;
     margin: auto;
+    height: 100%;
     @media (min-width: 800px){
         width: 90%;
     }
