@@ -23,5 +23,5 @@ export const StyledImage = styled.img`
 `
 
 export const Title = styled.div`
-    font-size: ${props => props.theme.sizes.normal};
+    font-size: ${props => props.theme.sizes.big};
 `
