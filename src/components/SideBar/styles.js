@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { Link } from 'react-router-dom'
 
 export const Frame = styled.div`
     padding: 50px 30px 0 15px;
@@ -20,9 +21,22 @@ export const Frame = styled.div`
     }
 `
 
-export const ListItem = styled.div`
+export const ListItem = styled(Link)`
+    display: block;
     width: 100%;
-    :hover{
-        cursor: pointer;
+    margin-left: 15px;
+    :link{
+        text-decoration: none;
+        color: ${props => props.theme.colors.highlight};
+    }
+    :hover {
+        text-decoration: underline;
+    }
+    :visited{
+        color: ${props => props.theme.colors.primary};
+    }
+    @media (max-width: 800px){
+        margin-left: 0px;
+        margin-right: 15px;
     }
 `
