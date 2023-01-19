@@ -10,6 +10,7 @@ export const Frame = styled.nav`
     }
     height: 3.5rem;
     direction: rtl;
+    position: relative;
     background-color: ${props => props.theme.colors.secondary};
     border: 1px solid ${props => props.theme.colors.highlight};
     border-style: none none solid none;
@@ -30,4 +31,13 @@ export const StyledImage = styled.img`
 
 export const Title = styled.div`
     font-size: ${props => props.theme.sizes.big};
+`
+
+export const SideBarButton = styled.img`
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    top: 0.25rem;
+    left: 0.25rem;
+    background-color: red;
 `

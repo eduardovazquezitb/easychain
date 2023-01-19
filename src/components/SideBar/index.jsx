@@ -1,6 +1,6 @@
 import { Frame, ListItem } from './styles'
 
-const SideBar = () => {
+const SideBar = ({ isHidden = true, onClick = null }) => {
   const pages = [
     {
       name: 'Menu'
@@ -12,10 +12,16 @@ const SideBar = () => {
       name: 'Exchange List'
     }
   ]
+  const handleOnClick = () => {
+    if (onClick !== null) { onClick() }
+  }
+  if (isHidden) {
+    return (<div />)
+  }
   return (
     <Frame>
       {pages.map((page, it) =>
-        <ListItem key={it}>{page.name}</ListItem>
+        <ListItem key={it} onClick={handleOnClick}>{page.name}</ListItem>
       )}
     </Frame>
   )
