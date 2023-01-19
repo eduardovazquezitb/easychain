@@ -7,6 +7,7 @@ const Home = () => {
     <Frame>
       <Title
         hover={hoverState}
+        data-testid='home-title'
       >
         EasyChain
       </Title>
@@ -16,6 +17,7 @@ const Home = () => {
         onMouseEnter={() => setHoverState(true)}
         onMouseLeave={() => setHoverState(false)}
         hover={hoverState}
+        data-testid='home-logo'
       />
     </Frame>
   )

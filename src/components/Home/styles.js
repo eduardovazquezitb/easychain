@@ -22,4 +22,8 @@ export const Title = styled.h1`
 export const StyledImage = styled.img`
     transition: 0.7s;
     opacity: ${props => props.hover ? '0' : '1'};
+    @media (max-width: 800px){
+        width: 100%;
+        height: auto;
+    }
 `
