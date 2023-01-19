@@ -8,10 +8,6 @@ export const Frame = styled.div`
     background-size: cover;
 `
 
-export const HighlightTitle = styled.h1`
-    color: ${props => props.theme.colors.highlight};
-`
-
 export const ContentWrapper = styled.div`
     padding: 5px;
     margin: auto;
