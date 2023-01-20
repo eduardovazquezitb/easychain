@@ -18,6 +18,6 @@ export const easyChainTheme = {
     normal: '1.5rem',
     big: '2rem',
     veryBig: '4rem',
-    phoneSize: '800px'
+    phoneSize: '850px'
   } // rem
 }
