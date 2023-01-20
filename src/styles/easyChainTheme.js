@@ -13,7 +13,7 @@ export const easyChainTheme = {
     negative: 'var(--clr-negative)'
   },
   sizes: {
-    small: '1rem',
+    small: '0.8rem',
     phoneNormal: '1.2rem',
     normal: '1.5rem',
     big: '2rem',

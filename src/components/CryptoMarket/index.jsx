@@ -44,7 +44,7 @@ const CryptoMarketPhone = ({ data = [], currency = 'usd' }) => {
           <th>#</th>
           <th>Coin</th>
           <th>Price</th>
-          <th>24 h</th>
+          <LastColumnHeader>24 h</LastColumnHeader>
         </tr>
       </TableHeader>
       <tbody>
@@ -58,8 +58,8 @@ const CryptoMarketPhone = ({ data = [], currency = 'usd' }) => {
               />
               <p>{coin.name}</p>
             </LogoPlusName>
-            <td>{coin.current_price + ' ' + currency}</td>
-            <PercentageChangeLast isPositive={coin.price_change_percentage_24h >= 0}>{coin.price_change_percentage_24h}</PercentageChangeLast>
+            <td>{parseFloat(coin.current_price).toFixed(3) + ' ' + currency}</td>
+            <PercentageChangeLast isPositive={coin.price_change_percentage_24h >= 0}>{parseFloat(coin.price_change_percentage_24h).toFixed(2)}</PercentageChangeLast>
           </BodyRow>
         )}
       </tbody>
