@@ -9,10 +9,12 @@ export const Frame = styled.table`
         vertical-align: middle;
         font-size: ${props => props.theme.sizes.normal};
     }
-    @media (max-width: ${props => props.theme.sizes.phoneSize}){
+    @media (max-width: ${props => props.theme.sizes.phoneSize}) {
         margin-left: auto;
         margin-right: auto;
-        font-size: ${props => props.theme.sizes.small};
+        *{
+            font-size: ${props => props.theme.sizes.small};
+        }
     }
 `
 
