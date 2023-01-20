@@ -81,8 +81,6 @@ const CryptoMarket = () => {
   const currencyList = useSupportedCurrencies()
   const coinsMarket = useCoinsMarket(queryState)
 
-  console.log(currencyList)
-
   const getCurrencyList = () => {
     if (currencyList.isResolved) { return currencyList.response.data }
     return ['usd', 'eur']
