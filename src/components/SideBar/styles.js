@@ -35,7 +35,7 @@ export const ListItem = styled(Link)`
     :visited{
         color: ${props => props.theme.colors.primary};
     }
-    @media (max-width: 800px){
+    @media (max-width: ${props => props.theme.sizes.phoneSize}){
         margin-left: 0px;
         margin-right: 15px;
     }

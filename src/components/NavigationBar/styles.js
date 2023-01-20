@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 
 export const Frame = styled.nav`
     margin: auto;
-    @media (min-width: 800px){
+    @media (min-width: ${props => props.theme.sizes.phoneSize}){
         width: calc(90% - 200px);
     }
     @media (min-width: 1340px){

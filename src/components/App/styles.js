@@ -12,7 +12,7 @@ export const ContentWrapper = styled.div`
     padding: 5px;
     margin: auto;
     height: calc(100% - 3.5rem);
-    @media (min-width: 800px){
+    @media (min-width: ${props => props.theme.sizes.phoneSize}){
         width: calc(90% - 200px);
         padding-left: 15px;
         padding-right: 15px;
