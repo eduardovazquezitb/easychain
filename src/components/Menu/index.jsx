@@ -9,11 +9,14 @@ const Menu = () => {
   const handleButtonClick = () => {
     setIsSideBarHidden(!isSideBarHidden)
   }
+  const closeSideBar = () => {
+    setIsSideBarHidden(true)
+  }
   return (
     <>
       <SideBar
         isHidden={isSideBarHidden && appVersion !== 'desktop'}
-        onClick={handleButtonClick}
+        onClick={closeSideBar}
       />
       <NavigationBar
         appVersion={appVersion}
