@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Frame, Header, LastColumnHeader, PercentageChangeLast, BodyRow, TableHeader, FlexBox, Content, StyledImage, LogoPlusName, PercentageChange } from './styles'
 import useAppVersion from '../GetWindowDimensions'
-import { useCoinsMarket } from '../ApiCaller'
+import { useCoinsMarket, useSupportedCurrencies } from '../ApiCaller'
 import LoadingComponent from '../LoadingComponent'
 import FilterInput from '../FilterInput'
 
@@ -71,23 +71,34 @@ const CryptoMarketDisplayerFork = ({ data = [], currency = 'usd' }) => {
   const appVersion = useAppVersion()
 
   if (appVersion === 'desktop') {
-    return <CryptoMarketDesktop data={data} />
+    return <CryptoMarketDesktop data={data} currency={currency} />
   }
-  return <CryptoMarketPhone data={data} />
+  return <CryptoMarketPhone data={data} currency={currency} />
 }
 
 const CryptoMarket = () => {
   const [queryState, setQueryState] = useState({ currency: 'usd', order: 'market_cap_desc', perPage: 100, page: 1 })
+  const currencyList = useSupportedCurrencies()
   const coinsMarket = useCoinsMarket(queryState)
-  console.log(coinsMarket)
-  const filterOptions = ['currency', 'order', 'perPage', 'page']
+
+  console.log(currencyList)
+
+  const getCurrencyList = () => {
+    if (currencyList.isResolved) { return currencyList.response.data }
+    return ['usd', 'eur']
+  }
+
+  const filterOptions = () => [
+    { name: 'currency', type: 'select', options: getCurrencyList() },
+    { name: 'order', type: 'select', options: ['market_cap_desc', 'gecko_desc', 'gecko_asc', 'market_cap_asc', 'market_cap_desc', 'volume_asc', 'volume_desc', 'id_asc', 'id_desc'] },
+    { name: 'perPage', type: 'text' },
+    { name: 'page', type: 'text' }
+  ]
 
   const onSubmit = ({ prop = {} }) => {
     if (Object.keys(prop).length === 2) {
       const newQuery = structuredClone(queryState)
-      if (prop.key === 'Chain') {
-        newQuery.chain = prop.value
-      }
+      newQuery[prop.key] = prop.value
       setQueryState(newQuery)
     }
   }
@@ -95,7 +106,7 @@ const CryptoMarket = () => {
     <FlexBox>
       <Header>
         <FilterInput
-          options={filterOptions}
+          options={filterOptions()}
           onChange={(e) => { onSubmit(e) }}
         />
       </Header>

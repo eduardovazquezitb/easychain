@@ -1,32 +1,55 @@
-import { useRef } from 'react'
+import { useState } from 'react'
 import { StyledForm, StyledSelect, StyledInput, StyledSubmit, StyledOption } from './styles'
 
 const FilterInput = ({ options = [], onChange = null }) => {
-  const propValue = useRef('')
-  const propKey = useRef(options.length > 0 ? options[0] : '')
+  const [propIndex, setPropIndex] = useState(0)
+  const propKey = options[propIndex].name
+  let propValue = options[propIndex].type === 'text' ? '' : options[propIndex].options[0]
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    const prop = { key: propKey.current, value: propValue.current }
+    const prop = { key: propKey, value: propValue }
     if (onChange) { onChange({ prop }) }
+  }
+
+  const InputSelect = () => {
+    if (options[propIndex].type === 'text') {
+      return (
+        <StyledInput
+          type='text'
+          placeholder='search...'
+          defaultValue={propValue}
+          onChange={(e) => { propValue = e.target.value }}
+          data-testid='filter-input-text'
+        />
+      )
+    }
+    return (
+      <StyledSelect
+        onChange={(e) => { propValue = e.target.value }}
+        defaultValue={propValue}
+        data-testid='filter-input-select'
+      >
+        {options[propIndex].options.map((option, index) =>
+          <StyledOption key={index} value={option} data-testid='filter-input-option'>
+            {option}
+          </StyledOption>
+        )}
+      </StyledSelect>
+    )
   }
 
   return (
     <StyledForm onSubmit={handleSubmit}>
-      <StyledInput
-        type='text'
-        placeholder='search...'
-        onChange={(e) => { propValue.current = e.target.value }}
-        data-testid='filter-input-text'
-      />
+      <InputSelect />
       <StyledSelect
-        onChange={(e) => { propKey.current = e.target.value }}
+        onChange={(e) => { setPropIndex(e.target.selectedIndex) }}
         defaultValue={0}
         data-testid='filter-select-element'
       >
         {options.map((option, index) =>
-          <StyledOption key={index} value={option} data-testid='filter-select-option'>
-            {option}
+          <StyledOption key={index} value={option.name} data-testid='filter-select-option'>
+            {option.name}
           </StyledOption>
         )}
       </StyledSelect>

@@ -4,7 +4,7 @@ import { ThemeProvider } from '@emotion/react'
 import { easyChainTheme } from '../../styles/easyChainTheme'
 
 test('all options are rendered', () => {
-  const options = ['uno', 'dos', 'tres']
+  const options = [{name:'uno', type: 'text'}, {name:'dos', type: 'text'}, {name:'tres', type: 'text'}]
 
   render(
     <ThemeProvider theme={easyChainTheme}>
@@ -19,7 +19,7 @@ test('all options are rendered', () => {
 })
 
 test('when submit button is clicked an object is returned', () => {
-    const options = ['uno', 'dos', 'tres']
+  const options = [{name:'uno', type: 'text'}, {name:'dos', type: 'text'}, {name:'tres', type: 'text'}]
   
     let result = {}
 
@@ -40,7 +40,7 @@ test('when submit button is clicked an object is returned', () => {
   })
 
   test('when changing selected option and submitting a different prop key is received', () => {
-    const options = ['uno', 'dos', 'tres']
+    const options = [{name:'uno', type: 'text'}, {name:'dos', type: 'text'}, {name:'tres', type: 'text'}]
   
     let result = {}
 
@@ -63,7 +63,7 @@ test('when submit button is clicked an object is returned', () => {
   })
 
   test('when writing text and submitting a different prop value is received', () => {
-    const options = ['uno', 'dos', 'tres']
+    const options = [{name:'uno', type: 'text'}, {name:'dos', type: 'text'}, {name:'tres', type: 'text'}]
   
     let result = {}
 

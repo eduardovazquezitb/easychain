@@ -21,14 +21,14 @@ const NFTMarket = () => {
 
   const nfts = useNFTPort(queryState)
 
-  const filterOptions = ['Chain', 'Contract Address', 'Creator Address']
+  const filterOptions = [
+    { name: 'chain', type: 'select', options: ['polygon', 'ethereum', 'goerli'] }
+  ]
 
   const onSubmit = ({ prop = {} }) => {
     if (Object.keys(prop).length === 2) {
       const newQuery = structuredClone(queryState)
-      if (prop.key === 'Chain') {
-        newQuery.chain = prop.value
-      }
+      newQuery[prop.key] = prop.value
       setQueryState(newQuery)
     }
   }
