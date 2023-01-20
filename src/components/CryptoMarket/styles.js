@@ -9,7 +9,7 @@ export const Frame = styled.table`
         vertical-align: middle;
         font-size: ${props => props.theme.sizes.normal};
     }
-    @media (max-width: 800px){
+    @media (max-width: ${props => props.theme.sizes.phoneSize}){
         margin-left: auto;
         margin-right: auto;
         font-size: ${props => props.theme.sizes.small};
@@ -40,7 +40,7 @@ export const Hyperlink = styled.a`
     :visited{
         color: ${props => props.theme.colors.primary};
     }
-    @media (max-width: 800px){
+    @media (max-width: ${props => props.theme.sizes.phoneSize}){
         margin-left: 0px;
         margin-right: 15px;
     }
