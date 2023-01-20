@@ -25,9 +25,9 @@ export const useWindowDimensions = () => {
 
 const useAppVersion = () => {
   const { width } = useWindowDimensions()
-  const [appVersion, setAppVersion] = useState(width > 800 ? 'desktop' : 'phone')
+  const [appVersion, setAppVersion] = useState(width > 850 ? 'desktop' : 'phone')
   useEffect(() => {
-    setAppVersion(width > 800 ? 'desktop' : 'phone')
+    setAppVersion(width > 850 ? 'desktop' : 'phone')
   }, [width])
   return appVersion
 }
