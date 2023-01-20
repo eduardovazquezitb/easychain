@@ -34,11 +34,3 @@ jobs:
         run: yarn build
       - name: Test
         run: yarn test
-      - name: Creat branch for GitHub Pages
-        if: ${{ github.event_name == 'push' }}
-        uses: crazy-max/ghaction-github-pages@v3
-        with:
-          target_branch: gh-pages
-          build_dir: build
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
