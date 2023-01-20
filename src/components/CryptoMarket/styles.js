@@ -19,9 +19,8 @@ export const Frame = styled.table`
 export const TableHeader = styled.thead`
     text-align: left;
     * {
-
-    border: 1px solid ${props => props.theme.colors.disabled};
-    border-style: none none solid none;
+        border: 1px solid ${props => props.theme.colors.disabled};
+        border-style: none none solid none;
     }
 `
 
