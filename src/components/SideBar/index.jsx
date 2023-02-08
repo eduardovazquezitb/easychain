@@ -4,17 +4,17 @@ const SideBar = ({ isHidden = true, onClick = null }) => {
   if (isHidden) {
     return (<div />)
   }
-  const handleOnClick = () => {
+  const handleOnClick = (newContentState) => {
     if (onClick !== null) {
-      onClick()
+      onClick(newContentState)
     }
   }
   return (
     <Frame>
-      <ListItem to='/' onClick={handleOnClick}>Home</ListItem>
-      <ListItem to='/cryptomarket' onClick={handleOnClick}>Crypto Market</ListItem>
-      <ListItem to='/nftmarket' onClick={handleOnClick}>NFT Market</ListItem>
-      <ListItem to='/exchangelist' onClick={handleOnClick}>Exchange List</ListItem>
+      <ListItem to='/' onClick={() => handleOnClick('')}>Home</ListItem>
+      <ListItem to='/cryptomarket' onClick={() => handleOnClick('cryptomarket')}>Crypto Market</ListItem>
+      <ListItem to='/nftmarket' onClick={() => handleOnClick('nftmarket')}>NFT Market</ListItem>
+      <ListItem to='/exchangelist' onClick={() => handleOnClick('exchangelist')}>Exchange List</ListItem>
     </Frame>
   )
 }

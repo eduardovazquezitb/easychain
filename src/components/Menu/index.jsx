@@ -3,13 +3,14 @@ import useAppVersion from '../GetWindowDimensions'
 import SideBar from '../SideBar'
 import NavigationBar from '../NavigationBar'
 
-const Menu = () => {
+const Menu = ({ onChange = null }) => {
   const appVersion = useAppVersion()
   const [isSideBarHidden, setIsSideBarHidden] = useState(true)
   const handleButtonClick = () => {
     setIsSideBarHidden(!isSideBarHidden)
   }
-  const closeSideBar = () => {
+  const closeSideBar = (newContentState) => {
+    if (onChange !== null) { onChange(newContentState) }
     setIsSideBarHidden(true)
   }
   return (

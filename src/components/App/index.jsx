@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 import { Frame, ContentWrapper } from './styles'
 import Home from '../Home'
 import Menu from '../Menu'
@@ -7,17 +7,27 @@ import NFTMarket from '../NFTMarket'
 import ExchangeList from '../ExchangeList'
 
 function App () {
-  const background = process.env.PUBLIC_URL + '/images/backgrounds/background' + Math.floor(Math.random() * 4) + '.png'
+  const [contentState, setContentState] = useState('')
+  const [backgroundState, setBackgroundState] = useState(process.env.PUBLIC_URL + '/images/backgrounds/background0.png')
+  useEffect(() => {
+    setBackgroundState(process.env.PUBLIC_URL + '/images/backgrounds/background' + Math.floor(Math.random() * 4) + '.png')
+  }, [])
+  const handleContentChange = (newContentState) => {
+    setContentState(newContentState)
+  }
   return (
-    <Frame background={background}>
-      <Menu />
+    <Frame background={backgroundState}>
+      <Menu onChange={handleContentChange} />
       <ContentWrapper>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/cryptomarket' element={<CryptoMarket />} />
-          <Route path='/nftmarket' element={<NFTMarket />} />
-          <Route path='/exchangelist' element={<ExchangeList />} />
-        </Routes>
+        {
+          contentState === 'cryptomarket'
+            ? <CryptoMarket />
+            : contentState === 'nftmarket'
+              ? <NFTMarket />
+              : contentState === 'exchangelist'
+                ? <ExchangeList />
+                : <Home />
+        }
       </ContentWrapper>
     </Frame>
   )
