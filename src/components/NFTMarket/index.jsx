@@ -44,7 +44,7 @@ const NFTMarket = () => {
         </Header>
         <Content>
           {nfts.isResolved
-            ? <NFTsDisplayer nfts={nfts.response.data.nfts} />
+            ? <NFTsDisplayer nfts={nfts.response.nfts} />
             : <LoadingComponent />}
         </Content>
         <Footer />

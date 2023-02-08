@@ -1,4 +1,3 @@
-import axios from 'axios'
 import { useState, useEffect } from 'react'
 
 // NFTPort Documentation https://docs.nftport.xyz/docs
@@ -9,15 +8,17 @@ export const useNFTPort = ({ chain = 'ethereum' }) => {
   useEffect(() => {
     setResponseState({ response: {}, isResolved: false })
     const config = {
+      method: 'GET',
       headers: {
-        'Content-Type': 'application/json',
+        accept: 'application/json',
         Authorization: '5dc18b30-2dc7-4ade-a710-e26c25aca039'
       }
     }
 
     const fecthData = async () => {
-      const response = await axios.get('https://api.nftport.xyz/v0/nfts?chain=' + chain + '&include=all', config)
-      setResponseState({ response, isResolved: true })
+      await fetch('https://api.nftport.xyz/v0/nfts?chain=' + chain + '&include=all&include=default', config)
+        .then(response => response.json())
+        .then(response => setResponseState({ response, isResolved: true }))
     }
 
     fecthData()
@@ -40,8 +41,9 @@ export const useCoinsList = () => {
     }
 
     const fecthData = async () => {
-      const response = await axios.get('https://api.coingecko.com/api/v3/coins/list', config)
-      setResponseState({ response, isResolved: true })
+      await fetch('https://api.coingecko.com/api/v3/coins/list', config)
+        .then(response => response.json())
+        .then(response => setResponseState({ response, isResolved: true }))
     }
 
     fecthData()
@@ -61,8 +63,9 @@ export const useSupportedCurrencies = () => {
     }
 
     const fecthData = async () => {
-      const response = await axios.get('https://api.coingecko.com/api/v3/simple/supported_vs_currencies', config)
-      setResponseState({ response, isResolved: true })
+      await fetch('https://api.coingecko.com/api/v3/simple/supported_vs_currencies', config)
+        .then(response => response.json())
+        .then(response => setResponseState({ response, isResolved: true }))
     }
 
     fecthData()
@@ -84,8 +87,9 @@ export const useCoinsMarket = ({ currency = 'usd', order = 'market_cap_desc', pe
     }
 
     const fecthData = async () => {
-      const response = await axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=' + currency + '&order=' + order + '&per_page=' + perPage + '&page=' + page + '&sparkline=false', config)
-      setResponseState({ response, isResolved: true })
+      await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=' + currency + '&order=' + order + '&per_page=' + perPage + '&page=' + page + '&sparkline=false', config)
+        .then(response => response.json())
+        .then(response => setResponseState({ response, isResolved: true }))
     }
 
     fecthData()
@@ -105,8 +109,9 @@ export const useCoinPrice = ({ id = 'bitcoin', currency = 'usd' }) => {
     }
 
     const fecthData = async () => {
-      const response = await axios.get('https://api.coingecko.com/api/v3/simple/price?ids=' + id + '&vs_currencies=' + currency, config)
-      setResponseState({ response, isResolved: true })
+      await fetch('https://api.coingecko.com/api/v3/simple/price?ids=' + id + '&vs_currencies=' + currency, config)
+        .then(response => response.json())
+        .then(response => setResponseState({ response, isResolved: true }))
     }
 
     fecthData()

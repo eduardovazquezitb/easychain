@@ -1,7 +1,6 @@
 import styled from '@emotion/styled'
-import { Link } from 'react-router-dom'
 
-export const Frame = styled.div`
+export const Frame = styled.ul`
     padding: 50px 30px 0 15px;
     height: 100%;
     position: fixed !important;
@@ -21,7 +20,7 @@ export const Frame = styled.div`
     }
 `
 
-export const ListItem = styled(Link)`
+export const ListItem = styled.li`
     display: block;
     width: 100%;
     margin-left: 15px;
@@ -31,6 +30,7 @@ export const ListItem = styled(Link)`
     }
     :hover {
         text-decoration: underline;
+        cursor: pointer;
     }
     :visited{
         color: ${props => props.theme.colors.primary};

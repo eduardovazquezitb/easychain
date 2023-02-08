@@ -82,7 +82,7 @@ const CryptoMarket = () => {
   const coinsMarket = useCoinsMarket(queryState)
 
   const getCurrencyList = () => {
-    if (currencyList.isResolved) { return currencyList.response.data }
+    if (currencyList.isResolved) { return currencyList.response }
     return ['usd', 'eur']
   }
 
@@ -110,7 +110,7 @@ const CryptoMarket = () => {
       </Header>
       <Content>
         {coinsMarket.isResolved
-          ? <CryptoMarketDisplayerFork data={coinsMarket.response.data} currency={queryState.currency} />
+          ? <CryptoMarketDisplayerFork data={coinsMarket.response} currency={queryState.currency} />
           : <LoadingComponent />}
       </Content>
     </FlexBox>
