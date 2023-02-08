@@ -1,4 +1,3 @@
-import axios from 'axios'
 import { useState, useEffect } from 'react'
 
 // NFTPort Documentation https://docs.nftport.xyz/docs
