@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 const useApiCallState = ({ query = null, queryParams = null }) => {
   const [apiCallState, setApiCallState] = useState({ state: 'pending', data: {} })
   useEffect(() => {
+    setApiCallState({ state: 'pending', data: {} })
     let promise
     if (!query || !(promise = query(queryParams))) {
       console.error('Incorrect Input')
