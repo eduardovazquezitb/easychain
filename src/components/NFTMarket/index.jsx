@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import { Frame, FlexBox, Header, Content, Footer } from './styles'
-import { useNFTPort } from '../ApiCaller'
+import { getNFTs } from '../ApiCaller'
 import LoadingComponent from '../LoadingComponent'
 import FilterInput from '../FilterInput'
 import useAppVersion from '../GetWindowDimensions'
 import NFTDisplayerDesktop from '../NFTDisplayerDesktop'
 import NFTDisplayerPhone from '../NFTDisplayerPhone'
+import useApiCallState from '../ApiCallState'
 
 const NFTsDisplayer = ({ nfts = [] }) => {
   const appVersion = useAppVersion()
@@ -19,7 +20,7 @@ const NFTsDisplayer = ({ nfts = [] }) => {
 const NFTMarket = () => {
   const [queryState, setQueryState] = useState({ chain: 'polygon' })
 
-  const nfts = useNFTPort(queryState)
+  const nfts = useApiCallState({ query: getNFTs, queryParams: queryState })
 
   const filterOptions = [
     { name: 'chain', type: 'select', options: ['polygon', 'ethereum', 'goerli'] }
@@ -43,9 +44,11 @@ const NFTMarket = () => {
           />
         </Header>
         <Content>
-          {nfts.isResolved
-            ? <NFTsDisplayer nfts={nfts.response.nfts} />
-            : <LoadingComponent />}
+          {nfts.state === 'pending'
+            ? <LoadingComponent />
+            : nfts.state === 'error'
+              ? <p>EN TU MADRE</p>
+              : <NFTsDisplayer nfts={nfts.data.nfts} />}
         </Content>
         <Footer />
       </FlexBox>
